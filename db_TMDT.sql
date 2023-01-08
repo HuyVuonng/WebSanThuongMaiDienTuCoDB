@@ -320,5 +320,46 @@ end
 create proc layLoaiHang
 as
 begin
-	select * from tblHang
+	select * from tblLoaiHang
+end
+
+create proc layAllNoiBan
+as
+begin
+	select * from tblNoiBan
+end
+
+exec layAllNoiBan
+
+
+create proc prXoaNoiBan(@imaNoiBan int)
+as
+begin
+	delete from tblHang
+	where tblhang.iMaNoiBan=@imaNoiBan
+	delete from tblNoiBan
+	where tblNoiBan.iMaNoiBan=@imaNoiBan
+end
+
+exec prXoaNoiBan 4
+
+create proc prlayAllTK
+as
+begin
+	select * from tblKhachHang
+end
+
+exec prlayAllTK
+
+
+create proc prXoaTK(@imaTK int, @email nvarchar(max))
+as
+begin
+declare @
+	delete from tblHang
+	where tblhang.iMaNoiBan=@imaNoiBan
+	delete from tblNoiBan
+	where tblNoiBan.iMaNoiBan=@imaNoiBan
+	delete from tblKhachHang
+	where tblKhachHang.iMaKH=@imaTK
 end

@@ -55,7 +55,7 @@ namespace SanThuongMaiDienTu
             }
             else
             {
-                lbThongBao.Text = "Tài khoản hoặc mật khâu sai";
+                lbThongBao.Text = "Tài khoản hoặc mật khẩu sai";
             }
 
         }

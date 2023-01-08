@@ -106,8 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="ChiTietSanPham.aspx" />
     <Content Include="cms\ChiTietSanPham\ChiTietSanPhamControl.ascx" />
+    <Content Include="cms\TrangAdmin\TrangAdminLoadControl.ascx" />
+    <Content Include="cms\TrangAdmin\Xoa\XoaShopLoadControl.ascx" />
+    <Content Include="cms\TrangAdmin\Xoa\XoaTKLoadControl.ascx" />
     <Content Include="cms\TrangChu\DoChoTre\DoChoTreLoadControl.ascx" />
     <Content Include="cms\TrangChu\DoDienTu\DoDienTuLoadControl.ascx" />
     <Content Include="cms\TrangChu\DoGiaDung\DoGiaDungLoadControl.ascx" />
@@ -3997,6 +4001,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -4019,6 +4030,27 @@
     </Compile>
     <Compile Include="cms\ChiTietSanPham\ChiTietSanPhamControl.ascx.designer.cs">
       <DependentUpon>ChiTietSanPhamControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="cms\TrangAdmin\TrangAdminLoadControl.ascx.cs">
+      <DependentUpon>TrangAdminLoadControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\TrangAdmin\TrangAdminLoadControl.ascx.designer.cs">
+      <DependentUpon>TrangAdminLoadControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="cms\TrangAdmin\Xoa\XoaShopLoadControl.ascx.cs">
+      <DependentUpon>XoaShopLoadControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\TrangAdmin\Xoa\XoaShopLoadControl.ascx.designer.cs">
+      <DependentUpon>XoaShopLoadControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="cms\TrangAdmin\Xoa\XoaTKLoadControl.ascx.cs">
+      <DependentUpon>XoaTKLoadControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\TrangAdmin\Xoa\XoaTKLoadControl.ascx.designer.cs">
+      <DependentUpon>XoaTKLoadControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="cms\TrangChu\DoChoTre\DoChoTreLoadControl.ascx.cs">
       <DependentUpon>DoChoTreLoadControl.ascx</DependentUpon>
