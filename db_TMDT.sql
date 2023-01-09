@@ -363,3 +363,22 @@ declare @
 	delete from tblKhachHang
 	where tblKhachHang.iMaKH=@imaTK
 end
+
+create table tblGioHang
+(
+	iMaKH int,
+	iMaHang int,
+	iMaShop int,
+	iSoLuong int,
+	fGia float
+
+)
+
+create proc prThemvaoGioHang(@maKH int, @maHang int,@maShop int, @soLuong int, @gia float)
+as
+begin
+	insert into tblGioHang
+	values(@maKH,@maHang,@maShop,@soLuong,@gia)
+end
+
+select * from tblGioHang

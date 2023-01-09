@@ -132,12 +132,75 @@ namespace SanThuongMaiDienTu
         protected global::System.Web.UI.WebControls.LinkButton lbtTimKiem;
 
         /// <summary>
-        /// ChiTietSanPhamControl control.
+        /// ltrAnhSP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SanThuongMaiDienTu.cms.ChiTietSanPham.ChiTietSanPhamControl ChiTietSanPhamControl;
+        protected global::System.Web.UI.WebControls.Literal ltrAnhSP;
+
+        /// <summary>
+        /// ltrTenSP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrTenSP;
+
+        /// <summary>
+        /// ltrGiaban control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrGiaban;
+
+        /// <summary>
+        /// ltrMota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrMota;
+
+        /// <summary>
+        /// ltrShopBan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrShopBan;
+
+        /// <summary>
+        /// soluongmua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText soluongmua;
+
+        /// <summary>
+        /// ltrSoLuongCon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrSoLuongCon;
+
+        /// <summary>
+        /// btnThemvaoGioHang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnThemvaoGioHang;
     }
 }

@@ -76,7 +76,7 @@ namespace SanThuongMaiDienTu.cms.ChiTietSanPham
                         "<span class='soluongcon_title'>Lượng sản phẩm còn: </span>" +
                         "<span class='soluongcon_value' id='soluongcon'>" + tblTTSP.Rows[0]["iSoLuongCon"] + @"</span>" +
                         "</div>" +
-                        "<input type = 'submit' name='submit' id='submit' value='Thêm vào giỏ hàng' class='btn btn-primary btn_ThemVaoGioHang'>" +
+                        "<a type = 'submit' name='submit' id='submit' value='Thêm vào giỏ hàng' href='google.com' class='btn btn-primary btn_ThemVaoGioHang'>Thêm vào giỏ hàng</a>" +
                         "</div>";
         }
     }

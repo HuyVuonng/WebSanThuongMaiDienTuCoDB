@@ -173,7 +173,7 @@
                         <i class="header_search-btn-icon fas fa-search" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"></i></asp:LinkButton>
                        
                     </div>
-                        </form>
+                      
 
                     <!-- cart -->
                     <div class="header_cart">
@@ -267,8 +267,44 @@
                               <div class="product_detail">
                             <div class="grid__row">
                                 
-                                <uc1:ChiTietSanPhamControl runat="server" id="ChiTietSanPhamControl" />
+                               <div class='l-6 m-12 c-12'>
+                                   <div class='home-product-item__img'
+                                       <asp:Literal ID="ltrAnhSP" runat="server"></asp:Literal>></div>
+                               </div>
                             
+                                <div class='l-6 m-12 c-12 detail>
+                                    <span class='Product_name'>
+                                        <asp:Literal ID="ltrTenSP" runat="server"></asp:Literal></span>
+                                    <div class='gia'>
+                                        <span class='giatitle'>Giá của sản phẩm: </span>
+                                        <span class='giaSp'>
+                                            <asp:Literal ID="ltrGiaban" runat="server"></asp:Literal>đ</span>
+                                    </div>
+                                    <div class='Mota'>
+                                        <span class='MoTatitle'>Mô tả: </span>
+                                        <span class='motatxt'>
+                                            <asp:Literal ID="ltrMota" runat="server"></asp:Literal></span>
+                                    </div>
+                                    <div class='shopname_box'>
+                                        <span class='shopname_title'> Shop bán: </span>
+                                        <span class='shopname'>
+                                            <asp:Literal ID="ltrShopBan" runat="server"></asp:Literal></span>
+                                    </div>
+                                    <div class='soLuong'>
+                                        <span class='soluong_title'>Số lượng:</span>
+                                        <div class='dautru' id='dautru' onclick='BotSLSP()'><i class='fa-solid fa-minus'></i></div>
+                                        <input onchange="chekSLban()" type = 'text' name='soluongmua' class='soluongmua' value=<asp:Literal ID="soluongmua" runat="server"></asp:Literal>
+                                        <div class='daucong' id='daucong' onclick='themSLSP()'><i class='fa-solid fa-plus'></i></i></div>
+                                    </div>
+                                    <div class='soHangcon'>
+                                        
+                                        <span class='soluongcon_title'>Lượng sản phẩm còn: </span>
+                                        <span class='soluongcon_value' id='soluongcon'>
+                                            <asp:Literal ID="ltrSoLuongCon" runat="server"></asp:Literal></span>
+                                    </div>
+                                    <asp:Button ID="btnThemvaoGioHang" runat="server" Text="Thêm vào giỏ hàng" CssClass="btn btn-primary btn_ThemVaoGioHang" OnClick="btnThemvaoGioHang_Click"/>
+                                </div>
+                                  </form>
                             </div>
                         </div>
                         
