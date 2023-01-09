@@ -108,7 +108,6 @@
     <Content Include="About.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="ChiTietSanPham.aspx" />
-    <Content Include="cms\ChiTietSanPham\ChiTietSanPhamControl.ascx" />
     <Content Include="cms\TrangAdmin\TrangAdminLoadControl.ascx" />
     <Content Include="cms\TrangAdmin\Xoa\XoaShopLoadControl.ascx" />
     <Content Include="cms\TrangAdmin\Xoa\XoaTKLoadControl.ascx" />
@@ -3831,6 +3830,7 @@
     <Content Include="fonts\fontawesome-free-6.1.1-web\svgs\solid\yin-yang.svg" />
     <Content Include="fonts\fontawesome-free-6.1.1-web\svgs\solid\z.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GioHang.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -4024,13 +4024,6 @@
     <Compile Include="ChiTietSanPham.aspx.designer.cs">
       <DependentUpon>ChiTietSanPham.aspx</DependentUpon>
     </Compile>
-    <Compile Include="cms\ChiTietSanPham\ChiTietSanPhamControl.ascx.cs">
-      <DependentUpon>ChiTietSanPhamControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="cms\ChiTietSanPham\ChiTietSanPhamControl.ascx.designer.cs">
-      <DependentUpon>ChiTietSanPhamControl.ascx</DependentUpon>
-    </Compile>
     <Compile Include="cms\TrangAdmin\TrangAdminLoadControl.ascx.cs">
       <DependentUpon>TrangAdminLoadControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4156,6 +4149,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GioHang.aspx.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GioHang.aspx.designer.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

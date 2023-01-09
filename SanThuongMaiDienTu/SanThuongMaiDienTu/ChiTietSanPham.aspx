@@ -178,7 +178,7 @@
                     <!-- cart -->
                     <div class="header_cart">
                         <div class="header_cart-wrap">
-                            <a href=""><i class="header_cart-icon fas fa-shopping-cart"></i>
+                            <a href="/GioHang.aspx"><i class="header_cart-icon fas fa-shopping-cart"></i>
                                 <span class="header_cart-notice">3</span></a>
 
                             

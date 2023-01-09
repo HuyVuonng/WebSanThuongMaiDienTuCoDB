@@ -1,7 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TrangChu.aspx.cs" Inherits="SanThuongMaiDienTu.TrangChu" %>
-
-<%@ Register Src="~/cms/TrangChu/TrangChuLoadControl.ascx" TagPrefix="uc1" TagName="TrangChuLoadControl" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GioHang.aspx.cs" Inherits="SanThuongMaiDienTu.GioHang" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ</title>
+    <title>Giỏ hàng</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="css/main.css">
@@ -21,10 +18,104 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="fonts/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        .main{
+            display: flex;
+            margin-top: 60px;
+        }
+
+
+          .main .bang {
+        text-align: center;
+        width: 100%;
+    }
+/**.bang,th,td {
+    border:2px solid red;
+    border-collapse: collapse;
+}**/
+.td1 {
+    margin-top: 200px;
+    width: 150px;
+    height: 150px;
+}
+
+.main .cart_product {
+    width: 70%;
+    height: auto;
+    text-align: center;
+}
+
+.main .cart_price {
+    width: 30%;
+    background: red;
+    height: 100%;
+}
+
+.anh {
+    height: 70%;
+    width: 70%;
+}
+
+.xoa {
+    width: 80px;
+    height: 40px;
+    background: red;
+    color: aliceblue;
+    border: 0px solid white;
+    border-radius: 4px;
+}
+
+/*---------Thanh toán--------*/
+.main .cart_price {
+
+    width: 30%;
+    height: 350px;
+    border-radius: 8px;
+    background-color: burlywood;
+}
+
+.main .cart--right {
+    text-align: center;
+}
+
+    .main .cart--right .cart__title--right {
+        margin: 50px;
+    }
+
+    .main .cart--right .cart__products-total-price {
+        margin: 50px;
+    }
+
+#order_total_price {
+    color: red;
+    margin: 10px;
+}
+
+.main .cart--right cart__order-total {
+    margin: 20px;
+}
+
+.purchase-button {
+    width: 150px;
+    height: 25px;
+    color: white;
+    background-color: darkcyan;
+    border-radius: 4px;
+    border: 0px;
+}
+/*.main .cart--right .cart__product-price-unit {
+    margin:15px;
+}*/
+
+.footer {
+    margin-top: 200px;
+}
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-       <div class="app" id="app">
+     <form id="form1" runat="server">
+        <div class="app" id="app">
         <header class="header" id="header">
             <div class="grid">
                 <nav class="header__navbar ">
@@ -143,7 +234,7 @@
                     <!-- cart -->
                     <div class="header_cart">
                         <div class="header_cart-wrap">
-                            <a href="/GioHang.aspx"><i class="header_cart-icon fas fa-shopping-cart"></i>
+                            <a href=""><i class="header_cart-icon fas fa-shopping-cart"></i>
                                 <span class="header_cart-notice">3</span></a>
 
                             
@@ -198,15 +289,39 @@
 
         <div class="app__container" id="app__container">
             <div class="grid">
-                <div class="grid__row app__content">
+             
 
-                    <div class="grid__colum-10 l-12 c-12">
+                  	<div class="main">
+	
+		<div class="cart_product">
+			<table class="bang">
+						<tr>
+							<th>Ảnh</th>
+							<th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+							<th>Giá</th>
+						</tr>
+        
+						 <%=HienCart() %>
 
-                        <uc1:TrangChuLoadControl runat="server" ID="TrangChuLoadControl" />
-
-                        
+			</table>
+		</div>
+		<div class="cart_price">
+			<div class="cart--right">
+                    <h2 class="cart__title--right">Đơn hàng<br></h2>
+                    <div class="cart__products-total-price">
+                        <p>Tổng tiền sản phẩm</p>
+                        <p runat="server" id="products_price"><span class="cart__product-price-unit"> <%=HienTongTienCart()%>đ</span></p>
+                    </div>
+                    <!-----<hr>--->
+                    <div class="cart__buttons--right">
+                        <button class="purchase-button" type="button">Thanh toán</button>
                     </div>
                 </div>
+		</div>
+	</div>
+
+               
             </div>
         </div>
 
@@ -336,7 +451,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
        <script src="Scripts/app.js"></script>
-        
     </form>
 </body>
 </html>

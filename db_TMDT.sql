@@ -382,3 +382,13 @@ begin
 end
 
 select * from tblGioHang
+
+alter proc prlayHangTrongGioHangTheoMaKh(@maKH int)
+as
+begin
+	
+	select * from tblHang,tblGioHang
+	where tblHang.iMaHang=tblGioHang.iMaHang and tblGioHang.iMaKH= @maKH
+end
+
+exec prlayHangTrongGioHangTheoMaKh 6
