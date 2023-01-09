@@ -296,8 +296,7 @@
                                         <input onchange="chekSLban()" type = 'text' name='soluongmua' class='soluongmua' value=<asp:Literal ID="soluongmua" runat="server"></asp:Literal>
                                         <div class='daucong' id='daucong' onclick='themSLSP()'><i class='fa-solid fa-plus'></i></i></div>
                                     </div>
-                                    <div class='soHangcon'>
-                                        
+                                    <div class='soHangcon'>                                        
                                         <span class='soluongcon_title'>Lượng sản phẩm còn: </span>
                                         <span class='soluongcon_value' id='soluongcon'>
                                             <asp:Literal ID="ltrSoLuongCon" runat="server"></asp:Literal></span>

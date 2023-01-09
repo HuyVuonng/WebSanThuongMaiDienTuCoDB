@@ -16,7 +16,7 @@ namespace SanThuongMaiDienTu
         string SP = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            soluongmua.Value = "1";
+            
            
           
             if (!IsPostBack)
@@ -128,6 +128,7 @@ namespace SanThuongMaiDienTu
         private void LayTTSanPham(string maSp)
         {
             DataTable tblTTSP = getMatHangTheoMa(maSp);
+            soluongmua.Value = "1";
             string tien = Convert.ToDouble(tblTTSP.Rows[0]["fGiaBan"]).ToString("N0");//Them dau phan cach hang nghin
             ltrGiaban.Text = tien;
             ltrMota.Text += tblTTSP.Rows[0]["sMoTa"];
@@ -150,6 +151,7 @@ namespace SanThuongMaiDienTu
                 DataTable tblTTSP = getMatHangTheoMa(SP1);
                 manoiban = tblTTSP.Rows[0]["iMaNoiBan"].ToString();
                 string maKH = Session["MaKh"].ToString();
+                soluongmua.Value = soluongmua.Value;
                 int SLMathangMuonMua = Convert.ToInt16(soluongmua.Value);
                 Double giaBan = Convert.ToDouble(ltrGiaban.Text) * SLMathangMuonMua;
 
