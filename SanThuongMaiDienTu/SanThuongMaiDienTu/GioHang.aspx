@@ -40,10 +40,19 @@
     height: 150px;
 }
 
+.anhSp1 {
+    width: 80px;
+}
+
 .main .cart_product {
     width: 70%;
     height: auto;
     text-align: center;
+    font-size: 18px;
+}
+td,tr,th{
+    width:fit-content;
+    height:fit-content;
 }
 
 .main .cart_price {
@@ -52,19 +61,7 @@
     height: 100%;
 }
 
-.anh {
-    height: 70%;
-    width: 70%;
-}
 
-.xoa {
-    width: 80px;
-    height: 40px;
-    background: red;
-    color: aliceblue;
-    border: 0px solid white;
-    border-radius: 4px;
-}
 
 /*---------Thanh toán--------*/
 .main .cart_price {
@@ -73,6 +70,13 @@
     height: 350px;
     border-radius: 8px;
     background-color: burlywood;
+}
+
+.cart_price{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 }
 
 .main .cart--right {
@@ -95,10 +99,15 @@
 .main .cart--right cart__order-total {
     margin: 20px;
 }
-
+.header_cart-notice{
+    display:none;
+}
+a{
+    color:black;
+}
 .purchase-button {
-    width: 150px;
-    height: 25px;
+   font-size: 22px;
+   padding:6px 12px;
     color: white;
     background-color: darkcyan;
     border-radius: 4px;
@@ -300,6 +309,7 @@
 							<th>Tên sản phẩm</th>
                             <th>Số lượng</th>
 							<th>Giá</th>
+                            <th>Tác vụ</th>
 						</tr>
         
 						 <%=HienCart() %>
@@ -308,10 +318,11 @@
 		</div>
 		<div class="cart_price">
 			<div class="cart--right">
-                    <h2 class="cart__title--right">Đơn hàng<br></h2>
-                    <div class="cart__products-total-price">
-                        <p>Tổng tiền sản phẩm</p>
-                        <p runat="server" id="products_price"><span class="cart__product-price-unit"> <%=HienTongTienCart()%>đ</span></p>
+                    <h2 class="cart__title--right" style="font-size: 30px;margin: 0;">Đơn hàng<br></h2>
+                 <p style="font-size: 15px;">Tổng số sản phẩm:<%=HienTongSoSPtrongCart()%></p>    
+                <div class="cart__products-total-price">
+                        <p style="font-size: 20px;">Tổng tiền sản phẩm</p>
+                        <p runat="server" id="products_price"><span class="cart__product-price-unit" style="font-size: 18px;"> <%=HienTongTienCart()%>đ</span></p>
                     </div>
                     <!-----<hr>--->
                     <div class="cart__buttons--right">
@@ -451,6 +462,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
        <script src="Scripts/app.js"></script>
+          <script>
+        function Conform_DeleteProductInCart() {
+            return confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?");
+        }
+          </script>
     </form>
 </body>
 </html>

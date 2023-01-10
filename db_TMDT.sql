@@ -352,17 +352,23 @@ end
 exec prlayAllTK
 
 
-create proc prXoaTK(@imaTK int, @email nvarchar(max))
+alter proc prXoaTK(@email nvarchar(50))
 as
 begin
-declare @
+declare @idnoiban int, @idKH int 
+	select @idKH=iMaKH  from tblKhachHang where tblKhachHang.sTaiKhoan=@email
+	select @idnoiban=iMaNoiBan from tblNoiBan where tblNoiBan.sTaiKhoan=@email
 	delete from tblHang
-	where tblhang.iMaNoiBan=@imaNoiBan
+	where tblhang.iMaNoiBan=@idnoiban
 	delete from tblNoiBan
-	where tblNoiBan.iMaNoiBan=@imaNoiBan
+	where tblNoiBan.sTaiKhoan=@email
+	delete from tblGioHang
+	where tblGioHang.iMaKH=@idKH
 	delete from tblKhachHang
-	where tblKhachHang.iMaKH=@imaTK
+	where tblKhachHang.sTaiKhoan=@email
 end
+
+
 
 create table tblGioHang
 (
@@ -374,16 +380,19 @@ create table tblGioHang
 
 )
 
-create proc prThemvaoGioHang(@maKH int, @maHang int,@maShop int, @soLuong int, @gia float)
+alter proc prThemvaoGioHang(@maKH int, @maHang int,@maShop int, @soLuong int)
 as
 begin
-	insert into tblGioHang
-	values(@maKH,@maHang,@maShop,@soLuong,@gia)
+	insert into tblGioHang(iMaKH,iMaHang,iMaShop,iSoLuong)
+	values(@maKH,@maHang,@maShop,@soLuong)
 end
+
+exec prThemvaoGioHang 6,4,1,2
+
 
 select * from tblGioHang
 
-alter proc prlayHangTrongGioHangTheoMaKh(@maKH int)
+create proc prlayHangTrongGioHangTheoMaKh(@maKH int)
 as
 begin
 	
@@ -392,3 +401,36 @@ begin
 end
 
 exec prlayHangTrongGioHangTheoMaKh 6
+
+alter trigger trgCapNhatSoLuongHangMuaKhiMuaTrung
+on tblGioHang
+instead of insert
+as
+begin
+declare @SLmuamoi int, @maHang int, @SLDaMua int,@maKH int, @gia float, @TongSoLuongMua int, @TongGia float,@maSHop int
+select @SLmuamoi=iSoLuong, @maHang=iMaHang, @maKH=iMaKH, @maSHop=iMaShop from inserted
+select @SLDaMua=iSoLuong from tblGioHang where iMaHang=@maHang and iMaKH=@maKH
+select @gia=fGiaBan from tblHang where iMaHang=@maHang
+if(@SLDaMua>0)
+begin
+set @TongSoLuongMua=@SLDaMua+@SLmuamoi
+set @TongGia=@gia*@TongSoLuongMua
+
+update tblGioHang
+set iSoLuong=@TongSoLuongMua, fGia=@TongGia
+where iMaKH=@maKH and iMaHang=@maHang
+end
+else
+begin
+set @TongGia=@gia*@SLmuamoi
+	insert into tblGioHang(iMaKH,iMaHang,iMaShop,iSoLuong, fGia)
+	values(@maKH,@maHang,@maShop,@SLmuamoi,@TongGia)
+end
+end
+
+create proc XoaSPTrongGioHang(@maSP int, @maKH int)
+as
+begin
+delete from tblGioHang
+where iMaHang=@maSP AND iMaKH=@maKH
+end

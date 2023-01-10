@@ -21,6 +21,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="fonts/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet" />
+    <style>
+        .header_cart-notice{
+    display:none;
+}
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

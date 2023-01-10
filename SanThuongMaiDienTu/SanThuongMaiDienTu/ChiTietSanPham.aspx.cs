@@ -153,7 +153,6 @@ namespace SanThuongMaiDienTu
                 string maKH = Session["MaKh"].ToString();
                 soluongmua.Value = soluongmua.Value;
                 int SLMathangMuonMua = Convert.ToInt16(soluongmua.Value);
-                Double giaBan = Convert.ToDouble(ltrGiaban.Text) * SLMathangMuonMua;
 
                 string connectionString = ConfigurationManager.ConnectionStrings["lienKetSQl"].ConnectionString;
                 using (SqlConnection Cnn = new SqlConnection(connectionString))
@@ -165,7 +164,6 @@ namespace SanThuongMaiDienTu
                         Cmd.Parameters.AddWithValue("@maHang", SP1);
                         Cmd.Parameters.AddWithValue("@maShop", manoiban);
                         Cmd.Parameters.AddWithValue("@soLuong", SLMathangMuonMua);
-                        Cmd.Parameters.AddWithValue("@gia", giaBan);
 
                         Cnn.Open();
                         int n = Cmd.ExecuteNonQuery();

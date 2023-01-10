@@ -13,6 +13,7 @@ namespace SanThuongMaiDienTu
 {
     public partial class GioHang : System.Web.UI.Page
     {
+        string maSPXoa = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,6 +27,12 @@ namespace SanThuongMaiDienTu
                     plChuaDNmobile.Visible = false;
                     if (Session["TenKH"] != null)
                         ltrTenKH_mobile.Text = ltrTenKH.Text = Session["TenKH"].ToString();
+                    if (Request.QueryString["modul"] !=null && Request.QueryString["modul"]== "xoaSP")
+                    {
+                        maSPXoa = Request.QueryString["maSP"];
+                        string maKH = Session["MaKh"].ToString();
+                        XoaSPTrongGioHang(maKH, maSPXoa);
+                    }
                 }
                 else
                 {
@@ -33,8 +40,30 @@ namespace SanThuongMaiDienTu
                     plChuaDN.Visible = true;
                     plDaDN_mobile.Visible = false;
                     plChuaDNmobile.Visible = true;
+                    Response.Redirect("/DangNhapKH.aspx"); ;
+
                 }
+                
+
             }
+        }
+
+        private void XoaSPTrongGioHang(string makh, string maSpXoa)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["lienKetSQl"].ConnectionString;
+            using (SqlConnection Cnn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand Cmd = new SqlCommand("XoaSPTrongGioHang", Cnn))
+                {
+                    Cmd.CommandType = CommandType.StoredProcedure;
+                    Cmd.Parameters.AddWithValue("@maKH", makh);
+                    Cmd.Parameters.AddWithValue("@maSP", maSpXoa);
+                    Cnn.Open();
+                    int n = Cmd.ExecuteNonQuery();
+                    Cnn.Close();
+
+                }//cmd
+            }//Cnn
         }
 
         protected void lbtDangXuat_Click(object sender, EventArgs e)
@@ -122,10 +151,11 @@ namespace SanThuongMaiDienTu
             {
                 string tien = Convert.ToDouble(tblTTCare.Rows[i]["fGia"]).ToString("N0");//Them dau phan cach hang nghin         
                 sb.AppendFormat("<tr>" +
-                    "<td> <img class='anhSp' src='img/{0}'> </td>" +
+                    "<td> <img class='anhSp1' src='img/{0}'> </td>" +
                     "<td> {1}</td>" +
                     "<td> {2}</td>" +
                     "<td> {3}đ </td>" +
+                    "<td> <a onclick='return Conform_DeleteProductInCart()' href='/GioHang.aspx?modul=xoaSP&&maSP=" + tblTTCare.Rows[i]["iMaHang"] + @"'>Xóa</td>" +
                     "</tr> ", tblTTCare.Rows[i]["AnhBia"], tblTTCare.Rows[i]["sTenHang"], tblTTCare.Rows[i]["iSoLuong"], tien);
 
               
@@ -148,6 +178,14 @@ namespace SanThuongMaiDienTu
 
             }
             sb.AppendFormat("{0}", Tongtien.ToString());
+            return sb.ToString();
+        }
+
+        public string HienTongSoSPtrongCart()
+        {
+            StringBuilder sb = new StringBuilder();
+            DataTable tblTTCare = getGioHAngTheoMaKH();
+            sb.AppendFormat("{0}", tblTTCare.Rows.Count);
             return sb.ToString();
         }
     }

@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChiTietSanPham.aspx.cs" Inherits="SanThuongMaiDienTu.ChiTietSanPham" %>
 
-<%@ Register Src="~/cms/ChiTietSanPham/ChiTietSanPhamControl.ascx" TagPrefix="uc1" TagName="ChiTietSanPhamControl" %>
 
 
 <!DOCTYPE html>
@@ -22,6 +21,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="fonts/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet" />
     <link href="fonts/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        .l-6.detail {
+    padding-left: 20px;
+}
+        .header_cart-notice{
+    display:none;
+}
+span.Product_name {
+    display: block;
+    font-size: 35px;
+    line-height: 35px;
+}
+
+span.giaSp {
+    font-size: 1.6rem;
+}
+
+span.MoTatitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+span.motatxt {
+    display: block;
+    margin-left: 16px;
+    font-size: 1.4rem;
+}
+
+.soLuong {
+    display: flex;
+    padding: 15px 0;
+}
+
+span.soluong_title {
+    font-size: 1.6rem;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+input.soluongmua {
+    width: 45px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.gia {
+    display: block;
+    margin: 15px 0;
+}
+
+span.giatitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.Mota {
+    margin-bottom: 15px;
+}
+
+.daucong, .dautru {
+    padding: 2px;
+}
+
+    .daucong:hover, .dautru:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+.soHangcon {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.btn_ThemVaoGioHang:hover {
+    opacity: 0.7;
+}
+
+span.shopname_title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+span.shopname {
+    font-size: 1.4rem;
+}
+    </style>
 </head>
 <body>
     <div class="app" id="app">
@@ -271,10 +357,13 @@
                                    <div class='home-product-item__img'
                                        <asp:Literal ID="ltrAnhSP" runat="server"></asp:Literal>></div>
                                </div>
-                            
-                                <div class='l-6 m-12 c-12 detail>
+
+                                <div class='l-6 m-12 c-12 detail' style="padding-left: 50px;">
+                                    
+
                                     <span class='Product_name'>
-                                        <asp:Literal ID="ltrTenSP" runat="server"></asp:Literal></span>
+                                            <asp:Literal ID="ltrTenSP" runat="server"></asp:Literal></span>
+        
                                     <div class='gia'>
                                         <span class='giatitle'>Giá của sản phẩm: </span>
                                         <span class='giaSp'>
@@ -303,6 +392,8 @@
                                     </div>
                                     <asp:Button ID="btnThemvaoGioHang" runat="server" Text="Thêm vào giỏ hàng" CssClass="btn btn-primary btn_ThemVaoGioHang" OnClick="btnThemvaoGioHang_Click"/>
                                 </div>
+                            
+                               
                                   </form>
                             </div>
                         </div>
