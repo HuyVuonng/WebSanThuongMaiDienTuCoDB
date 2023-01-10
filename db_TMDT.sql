@@ -352,7 +352,7 @@ end
 exec prlayAllTK
 
 
-alter proc prXoaTK(@email nvarchar(50))
+create proc prXoaTK(@email nvarchar(50))
 as
 begin
 declare @idnoiban int, @idKH int 
@@ -380,7 +380,7 @@ create table tblGioHang
 
 )
 
-alter proc prThemvaoGioHang(@maKH int, @maHang int,@maShop int, @soLuong int)
+create proc prThemvaoGioHang(@maKH int, @maHang int,@maShop int, @soLuong int)
 as
 begin
 	insert into tblGioHang(iMaKH,iMaHang,iMaShop,iSoLuong)
@@ -402,7 +402,7 @@ end
 
 exec prlayHangTrongGioHangTheoMaKh 6
 
-alter trigger trgCapNhatSoLuongHangMuaKhiMuaTrung
+create trigger trgCapNhatSoLuongHangMuaKhiMuaTrung
 on tblGioHang
 instead of insert
 as
